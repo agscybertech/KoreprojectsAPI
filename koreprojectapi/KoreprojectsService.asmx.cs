@@ -3460,7 +3460,7 @@ namespace koreprojectapi
                 //if (dr["FileExtension"].ToString().ToUpper()=="PDF")
                 {
                     row.Add("Description", dr["Description"]);
-                    row.Add("File", projectpath + CurrentContact.Identifier + "/" + dr["FileName"]);//Description
+                    row.Add("File", projectpath + (!string.IsNullOrEmpty(Convert.ToString(dr["UserPhotoUploadFolder"]).Trim()) ? Convert.ToString(dr["UserPhotoUploadFolder"]).Trim() : CurrentContact.Identifier) + "/" + dr["FileName"] + "." + Convert.ToString(dr["FileExtension"]));//Description
                 }
 
                 tableRows.Add(row);
